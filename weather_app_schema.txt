@@ -1,0 +1,45 @@
+-- Users Table
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL
+);
+
+-- Cities Table
+CREATE TABLE cities (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    country VARCHAR(50),
+    latitude FLOAT,
+    longitude FLOAT
+);
+
+-- Favorites Table
+CREATE TABLE favorites (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    city_id INTEGER REFERENCES cities(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Weather Table
+CREATE TABLE weather (
+    id SERIAL PRIMARY KEY,
+    city_id INTEGER REFERENCES cities(id),
+    current_temp FLOAT,
+    current_conditions VARCHAR(50),
+    high_temp FLOAT,
+    low_temp FLOAT,
+    forecast JSON,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Comparison Table (Optional)
+CREATE TABLE comparisons (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    city1_id INTEGER REFERENCES cities(id),
+    city2_id INTEGER REFERENCES cities(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
