@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="weather-h2 row justify-content-center">
+    <h2>QuikWeather Forecast</h2>
+</div>
+
+<!-- Form for entering the city name or ZIP code -->
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6">
+            <form action="/weather" method="POST" class="d-flex align-items-center">
+                <input type="text" class="form-control me-2" name="location" id="location" required placeholder="Enter City Name or ZIP Code">
+                <button type="submit" class="btn btn-primary">Get Weather!</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if weather_data %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6">
+            <div class="current-weather-card text-center">
+                <h3>{{ city_name }}</h3>
+                <p><strong>Temperature:</strong> {{ weather_data.main.temp }} °{{ temp_unit }}</p>
+                <p><strong>Condition:</strong> {{ weather_data.weather[0].description.capitalize() }}</p>
+                <img src="http://openweathermap.org/img/wn/{{ icon_code }}@2x.png" alt="Current Weather Icon" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add to Favorites Button -->
+{% if current_user.is_authenticated %}
+    <div class="text-center mt-3">
+        <form action="{{ url_for('add_favorite') }}" method="POST">
+            <input type="hidden" name="city_name" value="{{ city_name }}">
+            <button type="submit" class="btn btn-primary" style="width: 240px;">Add {{ city_name }} to Favorites</button>
+        </form>
+    </div>
+{% endif %}
+
+<!-- 5-Day Forecast Section -->
+<div class="row mt-4 text-center">
+    {% if daily_forecast.items() %}
+        {% for day, forecast in daily_forecast.items() %}
+        <div class="col-4 col-lg-2 d-flex justify-content-center">
+            <div class="card forecast-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ day }}</h5>
+                    <img src="http://openweathermap.org/img/wn/{{ forecast.icon }}@2x.png" alt="Forecast Icon" class="img-fluid">
+                    <p class="forecast-temp">{{ forecast.max_temp }} °{{ temp_unit }}</p>
+                    <p class="forecast-conditions">{{ forecast.condition.title() }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="valid-city d-flex justify-content-center mt-3"> 
+            <p>Please enter a valid city name or ZIP code above.</p>
+        </div>
+    {% endif %}
+</div>
+
+{% endif %}  
+{% endblock %}
