@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="weather-h2 row justify-content-center">
+    <h2>Welcome to QuikWeather</h2>
+</div>
+<div class="instructions row justify-content-center">
+    <div class="welcome-heading">
+        <h5>Get accurate weather information for any city around the world!</h5>
+    </div>
+    <div class="col-12 text-center mt-3">
+        <p class="text-center">
+            <i class="fas fa-location-arrow"></i> Simply click "Get Weather" and enter a city or zip code.
+            <br> 
+            <i class="fas fa-star"></i> Save up to 3 cities in the "Favorites" section.
+            <br> 
+            <i class="fas fa-smile"></i> Enjoy the QuikWeather App!
+        </p>
+    </div>
+    <div class="col-12 d-flex justify-content-center mt-3">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('weather') }}" class="btn btn-primary btn-auto">Get Weather</a>
+        {% else %}
+        <div class="d-flex flex-column align-items-center">
+            <a href="{{ url_for('login') }}" class="btn btn-primary btn-block mb-2">Login</a>
+            <span>or</span>
+            <a href="{{ url_for('register') }}" class="btn btn-secondary btn-block mt-2">Register</a>
+            <span> to start viewing the weather forecast.</span>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="weather-h2 text-center">
+    <h2>QuikWeather</h2> 
+</div>
+
+<div class="favorites-h2 container mt-4">
+    <h2 class="text-center">Your Favorite Cities</h2>
+</div>
+    <div class="row justify-content-center">
+        {% for city in weather_data %}
+        <div class="col-12 col-sm-6 col-md-4">
+            <div class="card favorite-card mb-4">
+                <div class="card-body text-center">
+                    <h5 class="card-title">
+                        <a href="{{ url_for('weather') }}?location={{ city.city_name }}">{{ city.city_name }}</a>
+                    </h5>
+                    <p class="card-text">
+                        <strong>Temperature:</strong> {{ city.current_temp }}°{{ city.temp_unit }}<br>
+                        <strong>Conditions:</strong> {{ city.current_conditions }}<br>
+                        {% if city.icon_code %}
+                        <img src="http://openweathermap.org/img/wn/{{ city.icon_code }}@2x.png" alt="Weather icon">
+                        {% endif %}
+                    </p>
+                    <!-- Remove Favorite Button -->
+                    <form action="{{ url_for('remove_favorite', favorite_id=city.favorite_id) }}" method="POST">
+                        <button class="btn btn-danger mt-2">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12 text-center">
+            <p>No favorite cities saved yet.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center mt-4">
+        <a href="{{ url_for('weather') }}" class="btn btn-secondary">Back to Weather</a>
+    </div>
+</div>
+{% endblock %}

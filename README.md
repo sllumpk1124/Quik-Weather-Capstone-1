@@ -1,56 +1,66 @@
-# Capstone Project One
+Open weather map API:
+https://openweathermap.org/api
 
-We have broken down the Capstone Project into easy-to-follow steps. Each step of the capstone contains a link with instructions for that step. Here’s a quick overview of what you’ll do for each step of your capstone project:
 
-1. Step One: Initial Project Ideas: You’ll pick up to 3 project ideas to propose to your mentor and the Springboard community. You’ll also explore some potential APIs.
-2. Step Two: Project Proposal: For this step, you’ll write a proposal for the site you want to build. This will help your mentor better understand your chosen capstone project idea.
-3. Step Three: Schema Design and API Selection: After your mentor approves of your capstone project proposal, you’ll figure out the database design of your application and which API you’ll be using.
-4. Step Four: Coding User Flows: Once you’ve figured out what you’re building, you’ll write the code to implement it. It’s important to think about what you want a user’s experience to be like as they navigate your site.
-5. Step Five: Polishing Your Application: Once you have the core functionality implemented, you’ll focus on additional UI enhancements and styling for your application.
-6. Step Six: Documenting and Submission: You’ve done a lot of work so now it’s time to show your mentor your progress! Create a README in markdown, make sure your GitHub is organized, and submit your finalized project.
 
-## Overview
+# Description
 
-For your first Capstone Project, you’ll build a database-driven website off an external
-API of your choice. Your finished capstone will be an integral part of your portfolio; it will demonstrate to potential employers everything you’ve learned from this course.
+Quik Weather is a weather forecasting website that provides users with quick and accurate weather information for their chosen locations. Users can view current weather conditions, a detailed 5-day forecast, and save up to three favorite locations for easy access. The site aims to deliver an intuitive and visually appealing experience for users who need reliable weather updates on the go.
 
-We want you to work on a challenging project that will incorporate all of the back-end
-skills you’ve been developing and some of your front-end skills from the last section.
-The goal of this project isn’t to create something that’s never been done before. You
-could potentially create a website similar to one that already exists, or use a popular
-API. That being said, we do encourage you to be creative when building your site. You’re free to choose any API you’d like to use and we encourage you to tap into your
-imagination throughout the project.
+## Features
 
-There is a term in software development called CRUD - Create, Read, Update, Delete. This refers to all of the basic operations that a relational database performs. Your website should have more functionality than simple CRUD.
+## Key Features Implemented
+1. ### User Registration and Login:
+* **Purpose:**  Allows users to create a personalized account for managing their favorite cities.
+* **Why:** Adding user accounts enables saved preferences, making it easier for users to quickly access their preferred weather information.
+2. ### Current Weather Data:
+* **Purpose:** Displays real-time weather information, including temperature, conditions, and location-specific weather icons.
+* **Why:** Immediate access to current weather conditions is essential for users making short-term plans.
+3. ### 5-Day Forecast:
+* **Purpose:** Provides an extended view of weather conditions over the next five days.
+* **Why:** A multi-day forecast allows users to make informed decisions about upcoming events, trips, or daily activities.
+4. ### Favorite Cities:
+* **Purpose:** Allows users to save up to three favorite cities, displaying the current weather for each on their dashboard.
+* **Why:** This feature provides quick access to frequently checked locations, enhancing usability and personalization.
+5. ### Error Handling and Notifications:
+* **Purpose:** Provides feedback messages when a location cannot be found or data is unavailable.
+* **Why:** Clear messaging improves user experience by managing expectations and offering guidance.
 
-## Examples
+## User Flows
+1. ### New User Registration and Login:
+* **Steps:**
+    1. The user visits the registration page and signs up with a username, email, and password.
+    2. They log in and are greeted with a welcome message.
+    3. After login, they can add favorite cities, view the current weather, and explore the forecast.
+2. ### Searching for Weather:
+* **Steps:**
+    1. The user enters a city name or ZIP code in the search field.
+    2. The website fetches and displays current conditions, a weather icon, and a 5-day forecast for the location.
+3. ### Adding Favorite Cities:
+* **Steps:**
+    1. The user searches for a location and clicks “Add to Favorites.”
+    2. Up to three locations can be saved, with the option to remove any at any time.
 
-There are thousands of free, publically available APIs. If you love cars, you can pick
-from dozens of automotive APIs to build something that will reflect your passion. If you’re more into history, look into an API that lists the nobility of Europe. If you love sports, build a site about India’s top cricketers or your local football league.
+## API Used
 
-Let’s give you an example of what a site could look like. Say you choose an API like The
-Movie Database, your site could have a landing page saying “Welcome To MyMovieDB” and a separate page that displays a sortable list of all the movies in the API. This would be CRUD.
+**OpenWeather API:** This API provides the weather data displayed on the site, including current weather and 5-day forecasts. The API offers extensive weather information for cities globally, enabling reliable and up-to-date weather data retrieval.
 
-You could implement various filtering methods - to filter based on an actor, a director,
-the year the movie was released, etc. When you click on the record associated with the movie, you could redirect a user to a separate page that displays all of the data
-associated with that movie.
+## Technology Stack
+* **Backend:**
+    * **Python:** Core programming language used for server-side development.
+    * **Flask:** Web framework that handles routing, session management, and database interactions.
+    * **PostgreSQL:** Relational database used to store user data, favorites, and weather-related information.
+* **Frontend:**
+    * **HTML/CSS:** Structure and styling of the site, ensuring a responsive and user-friendly design.
+    * **Bootstrap:** CSS framework used for styling and layout, providing a consistent, modern UI.
+* **API:**
+    * **OpenWeather API:** Provides weather and forecast data for various locations.
+* **Tools:**
+    * **Postman:** For testing API calls and responses.
+    * **Git/GitHub:** Version control for tracking changes and collaborating on the project.
 
-Now let’s talk about bells and whistles. If you were to implement ONE feature like
-creating sharable lists of your favorite movies, finding and playing a trailer for the movie on-page, or a simple “recommendation system” that would recommend new movies based on similarities to movies you liked, this would go beyond CRUD. A simple
-“recommendation system” would be along the lines of, if you like Big Daddy with Adam
-Sandler, recommending other Adam Sandler comedies from the 90s or recommending
-movies his co-stars like Steve Buscemi starred in. This does not mean creating a
-complicated system from scratch like Netflix.
+## Additional Notes
 
-It is better to pick a project that errs on the side of simple and boring than a complex
-project with a million moving parts you can get stuck in.
-
-[Here is an example of a previous project.](https://github.com/juliahazer/chart-my-team)
-
-## Guidelines
-
-1. You will use the following technologies in this project: Python/Flask, PostgreSQL, SQLAlchemy, Heroku, Jinja, RESTful APIs, JavaScript, HTML, CSS. Depending on your idea, you might end up using WTForms and other technologies discussed in the course.
-2. Every step of the project has submissions. This will alert your mentor to evaluate your work. Pay attention to the instructions so you submit the right thing. You will submit the link to your GitHub repo several times, this is for your mentor’s convenience. Your URL on GitHub is static and will not change.
-3. The first two steps require mentor approval to proceed, but after that, you are free to continue working on the project after you submit your work. For instance, you don’t need your mentor to approve your database schema before you start working on your site. Likewise, you don’t need your mentor to approve the first iteration of your site before you start polishing it.
-4. If you get stuck, there is a wealth of resources at your disposal. The course contains all of the material you will need to complete this project, but a well-phrased Google search might yield you an immediate solution to your problem. Don’t forget that your Slack community, TAs, and your mentor there to help you out.
-5. Make sure you use a free API and deploy your project on Heroku , so everyone can see your work!
+* **Session Management:** Flask's session handling ensures that user sessions remain active, improving user experience by keeping users logged in during their browsing session.
+* **Responsive Design:** The site layout adapts across device sizes, making it accessible and easy to use on both desktop and mobile devices.
+* **Security Considerations:** Passwords are hashed using bcrypt to protect user credentials, and user input is validated to prevent potential injection attacks.

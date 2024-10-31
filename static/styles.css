@@ -1,0 +1,228 @@
+
+/* -----------------------------------
+   Global Styling
+----------------------------------- */
+html, body {
+    height: 100%;
+    background: linear-gradient(to bottom, #e0f7fa, #b3e5fc); 
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+}
+
+h3, h5, .card-title {
+    color: #01579b; 
+}
+
+.favorites-h2 h2 {
+    color: #01579b;
+}
+
+.weather-h2 h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #00c6ff, #0072ff); 
+    color: #0072ff; 
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    text-fill-color: transparent; 
+    position: relative;
+    text-align: center;
+    animation: glow 2s ease-in-out infinite alternate; 
+    opacity: 0;
+    animation: fadeInScale 1.5s ease forwards;
+}
+
+.instructions {
+    text-align: center;
+}
+/* Glowing animation */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #00c6ff, 0 0 20px #0072ff, 0 0 30px #0072ff;
+    }
+    to {
+        text-shadow: 0 0 20px #00c6ff, 0 0 40px #0072ff, 0 0 50px #0072ff;
+    }
+}
+
+/* Fade-in and scale animation */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* -----------------------------------
+   Form and Button Styling
+----------------------------------- */
+.form-control {
+    max-width: 400px; 
+    margin-right: 10px;
+    height: calc(2.25rem + 2px); 
+}
+
+.form-control, .btn {
+    height: auto;
+}
+
+.btn-primary, .favorites-button {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover, .btn:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.favorites-button i {
+    margin-right: 5px;
+}
+
+.btn-block {
+    width: 100%; 
+    height: 50%;
+}
+
+button.btn-primary {
+    width: 50%;
+    height: 50%;
+}
+
+/* -----------------------------------
+   Form Containers
+----------------------------------- */
+.forecast-form-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* -----------------------------------
+   Card Styling (Forecast, Current Weather, Favorite, Login, Register)
+----------------------------------- */
+.card  {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    padding: 10px; 
+    transition: all 0.3s ease; 
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0 , 0, 0.2);
+    background-color: #e0f2f1;
+}
+
+.forecast-card {
+    width: 100%;
+}
+
+
+@media (max-width: 992px) {
+    .forecast-card {
+        width: 80%; 
+        margin-bottom: 10px;
+    }
+    .forecast-card .card-title {
+        font-size: 1rem;
+    }
+    .forecast-card img {
+        max-width: 50px;
+    }
+    .forecast-temp {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .forecast-card {
+        width: 90%; 
+    }
+    .col-4 {
+        width: 100%; 
+    }
+}
+
+
+.current-weather-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    padding: 10px; 
+    transition: all 0.3s ease
+}
+
+.current-weather-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0 , 0, 0.2);
+    background-color: #e0f2f1;
+}
+
+.login-card, .register-card, .favorite-card, .current-weather-card, .forecast-card {
+    background-color: #e3f2fd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 5px;
+    }
+
+.current-weather-card {
+    width: 100%; 
+    max-width: 400px;
+    margin: 5px auto; 
+}
+
+.forecast-temp {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.forecast-conditions {
+    font-style: italic;
+}
+
+/* -----------------------------------
+   Navbar Styling
+----------------------------------- */
+.navbar {
+    background-color: #007bff;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-brand:hover {
+    color: #d4d4d4;
+}
+
+.nav-link {
+    color: white;
+}
+
+/* -----------------------------------
+   Container Styling
+----------------------------------- */
+.container {
+    padding-top: 20px;
+    
+}
+
