@@ -1,7 +1,7 @@
 Open weather map API:
 https://openweathermap.org/api
 
-
+Quik-Weather Website:  https://quik-weather-capstone-1.onrender.com
 
 # Description
 
